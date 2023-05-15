@@ -40,7 +40,7 @@ export default {
 
 <template> 
   <div class="square">
-    <h2 v-if="this.city != ''"> Get weather forecast in: {{ this.city }}</h2>
+    <h2 v-if="this.city != ''"> Get weather forecast in: <span class="citycolor">{{ this.city }}</span></h2>
     <h2 v-else>Get weather forecast in your city  </h2>
     <form action="" @submit.prevent>
       <input v-model="city" class="input" type="text" placeholder="Enter the city"> <br>
@@ -70,6 +70,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.citycolor {
+  color:red;
 }
 .show {
   opacity: 0;
