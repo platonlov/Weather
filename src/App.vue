@@ -66,8 +66,8 @@ export default {
   animation: ani 0.5s forwards;
 }
 body {
-  background: rgb(93,77,16);
-  background: linear-gradient(90deg, rgba(93,77,16,1) 0%, rgba(138,128,26,1) 29%, rgba(169,218,7,1) 85%);
+  background: rgb(213,62,62);
+background: linear-gradient(90deg, rgba(213,62,62,1) 0%, rgba(198,159,36,1) 35%, rgba(198,100,36,1) 82%);
   display: flex;
   justify-content: center;
   align-items: center;
