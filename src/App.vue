@@ -24,7 +24,7 @@ export default {
       return "Feels like: " + this.info.main.feels_like
     },
     wind() {
-      return "Wind speed: " + this.info.wind.speed
+      return "Wind speed: " + this.info.wind.speed + " m/s"
     },
     minTemp() {
       return "Min temperature: " + this.info.main.temp_min
@@ -40,14 +40,18 @@ export default {
 
 <template> 
   <div class="square">
-    <h2>Get weather forecast in: {{ this.city }}</h2>
-    <input v-model="city" class="input" type="text" placeholder="Enter the city"> <br>
-    <button v-show="city != ''" @click="weather()" class="btn">Show the Temperature</button>
-    <div v-if="info != null">
+    <h2 v-if="this.city != ''"> Get weather forecast in: {{ this.city }}</h2>
+    <h2 v-else>Get weather forecast in your city  </h2>
+    <form action="" @submit.prevent>
+      <input v-model="city" class="input" type="text" placeholder="Enter the city"> <br>
+      <button v-show="city != ''" @click="weather()" class="btn">GET</button>
+    </form>
+    
+    <div v-if="info != null" class="show">
     <p>{{ temp }} ºC</p>
-    <p>{{ feel }}ºC </p>
-    <p>{{ minTemp }}ºC</p>
-    <p>{{ maxTemp }}ºC</p>
+    <p>{{ feel }} ºC </p>
+    <p>{{ minTemp }} ºC</p>
+    <p>{{ maxTemp }} ºC</p>
     <p>{{ wind }}</p>
   </div>
  
@@ -57,6 +61,8 @@ export default {
 <style>
 * {
   font-family: "Roboto";
+  opacity: 0;
+  animation: ani 0.5s forwards;
 }
 body {
   background: rgb(93,77,16);
@@ -64,6 +70,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.show {
+  opacity: 0;
+  animation: ani 2.5s forwards;
+  margin-top: 35px;
+}
+@keyframes ani {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 .square {
   width: 900px;
@@ -80,15 +95,20 @@ body {
 .square .input {
   border: transparent;
   border-radius: 15px;
-  margin-top: 60px;
+  margin-top: 30px;
   padding: 10px;
   width: 150px;
   padding: 5px;
 }
 .square .btn {
   border: transparent;
-  margin-top: 10px;
-  border: 1px solid brown;
+  margin-top: 15px;
+  background-color: white;
+  color: black;
+  font-family: "Nanum";
+  font-size: 100%;
+  
+
 }
 @font-face {
   font-family: "Roboto";
@@ -96,5 +116,9 @@ body {
   font-size: normal;
   font-weight: normal;
 
+}
+@font-face {
+  font-family: "Nanum";
+  src: url('https://fonts.google.com/share?selection.family=Nanum%20Gothic%20Coding');
 }
 </style>
