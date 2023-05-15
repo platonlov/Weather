@@ -72,6 +72,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+.citycolor {
+  color:red;
+}
 .show {
   opacity: 0;
   animation: ani 2.5s forwards;
