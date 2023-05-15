@@ -40,6 +40,7 @@ export default {
 
 <template> 
   <div class="square">
+    <div>TITLE</div>
     <h2 v-if="this.city != ''"> Get weather forecast in: {{ this.city }}</h2>
     <h2 v-else>Get weather forecast in your city  </h2>
     <form action="" @submit.prevent>
