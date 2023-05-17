@@ -1,10 +1,13 @@
 <script>
 import axios from 'axios'
+import { resolveDirective } from 'vue'
 export default {
   data() {
     return {
       city: '',
       info: null,
+
+
 
 
     }
@@ -40,12 +43,18 @@ export default {
 
 <template> 
   <div class="square">
-    <h2 v-if="this.city != ''"> Get weather forecast in {{ this.city }}</h2>
-    <h2 v-else>Get weather forecast in your city  </h2>
+
+    <img class="cloud" src="https://img.icons8.com/material-outlined/384/cloud--v1.png" alt="Weather">
+    <h2 class="text" v-if="this.city != ''"> Get weather forecast in: {{ this.city }}</h2>
+    <h2 class="text" v-else>Get weather forecast in your city  </h2>
+
     <form action="" @submit.prevent>
       <input v-model="city" class="input" type="text" placeholder="Enter the city"> <br>
       <button v-show="city != ''" @click="weather()" class="btn">GET</button>
     </form>
+    
+    
+
     
     <div v-if="info != null" class="show">
     <p>{{ temp }} ºC</p>
@@ -65,51 +74,70 @@ export default {
   animation: ani 0.5s forwards;
 }
 body {
-  background: rgb(213,62,62);
-background: linear-gradient(90deg, rgba(213,62,62,1) 0%, rgba(198,159,36,1) 35%, rgba(198,100,36,1) 82%);
+
+  background: rgb(62,213,164);
+  background: linear-gradient(90deg, rgba(62,213,164,1) 0%, rgba(36,198,181,1) 53%, rgba(28,156,215,1) 82%);
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.citycolor {
-  color:red;
+
+.cloud {
+  width: 75px;
+  height: 75px;
+  top: 25px;
+  
+
 }
 .show {
   opacity: 0;
   animation: ani 2.5s forwards;
-  margin-top: 35px;
+  position: relative;
+  top: -55px;
+  margin:10px;
 }
 @keyframes ani {
   0% {opacity: 0;}
   100% {opacity: 1;}
 }
+.text {
+  position: relative;
+  top: -75px;
+}
+
 .square {
-  width: 900px;
+  width: 250px;
   height: 500px;
-  background: rgba(0, 0, 0, 0.652);
+  background-color: rgba(205, 205, 205, 0.652);
   border-radius: 23px;
   padding: 20px;
   text-align: center;
-  color: white;
+  color: black;
 }
 .square h2 {
   margin-top: 100px;
 }
 .square .input {
-  border: transparent;
-  border-radius: 5px;
-  margin-top: 13px;
-  padding: 7px;
-  width: 190px;
-  text-align: center;
+
+  border-radius: 3px;
+  border: none;
+  padding: 10px;
+  position: relative;
+  top: -70px;
+
+
 }
 .square .btn {
-  border: transparent;
-  margin-top: 15px;
+  border:none;
+  font-family: 'Nanum';
   background-color: white;
-  color: black;
-  font-family: "Nanum";
-  font-size: 100%;
+  padding: 7px;
+  margin: 5px;
+  position: relative;
+  top: -65px;
+  font-size: medium;
+
   
 
 }
@@ -124,4 +152,5 @@ background: linear-gradient(90deg, rgba(213,62,62,1) 0%, rgba(198,159,36,1) 35%,
   font-family: "Nanum";
   src: url('https://fonts.google.com/share?selection.family=Nanum%20Gothic%20Coding');
 }
+
 </style>
