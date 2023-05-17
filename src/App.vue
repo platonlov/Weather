@@ -1,10 +1,13 @@
 <script>
 import axios from 'axios'
+import { resolveDirective } from 'vue'
 export default {
   data() {
     return {
       city: '',
       info: null,
+
+
 
 
     }
@@ -47,6 +50,8 @@ export default {
       <input v-model="city" class="input" type="text" placeholder="Enter the city"> <br>
       <button v-show="city != ''" @click="weather()" class="btn">GET</button>
     </form>
+    
+
     
     <div v-if="info != null" class="show">
     <p>{{ temp }} ºC</p>
@@ -122,4 +127,5 @@ body {
   font-family: "Nanum";
   src: url('https://fonts.google.com/share?selection.family=Nanum%20Gothic%20Coding');
 }
+
 </style>
