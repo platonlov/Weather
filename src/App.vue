@@ -34,7 +34,7 @@ export default {
     },
     maxTemp () {
       return "Max temperature: " + this.info.main.temp_max
-    }
+    },
 
   }
 }
@@ -43,9 +43,11 @@ export default {
 
 <template> 
   <div class="square">
+
     <img class="cloud" src="https://img.icons8.com/material-outlined/384/cloud--v1.png" alt="Weather">
     <h2 class="text" v-if="this.city != ''"> Get weather forecast in: {{ this.city }}</h2>
     <h2 class="text" v-else>Get weather forecast in your city  </h2>
+
     <form action="" @submit.prevent>
       <input v-model="city" class="input" type="text" placeholder="Enter the city"> <br>
       <button v-show="city != ''" @click="weather()" class="btn">GET</button>
@@ -72,17 +74,21 @@ export default {
   animation: ani 0.5s forwards;
 }
 body {
+
   background: rgb(62,213,164);
   background: linear-gradient(90deg, rgba(62,213,164,1) 0%, rgba(36,198,181,1) 53%, rgba(28,156,215,1) 82%);
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .cloud {
   width: 75px;
   height: 75px;
   top: 25px;
   
+
 }
 .show {
   opacity: 0;
@@ -113,11 +119,13 @@ body {
   margin-top: 100px;
 }
 .square .input {
+
   border-radius: 3px;
   border: none;
   padding: 10px;
   position: relative;
   top: -70px;
+
 
 }
 .square .btn {
