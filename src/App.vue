@@ -57,6 +57,7 @@ export default {
 
     
     <div v-if="info != null" class="show">
+    <b>Weather forecast for today:</b>
     <p>{{ temp }} ºC</p>
     <p>{{ feel }} ºC </p>
     <p>{{ minTemp }} ºC</p>
